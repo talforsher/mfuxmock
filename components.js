@@ -17,6 +17,23 @@ addEventListener("load", function () {
             }
         });
     }
+
+    var main = document.getElementsByClassName("main")[0]
+    main.onscroll = function () {
+        myFunction()
+    };
+
+    var navbar = document.getElementsByClassName("topbar")[0];
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+        if (main.scrollTop >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+
 })
 
 EL('main-app',
@@ -58,7 +75,7 @@ EL('side-bar',
             components: ["this", "that"],
             tokens: ["here", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there", "there"],
             downloads: ["for", "what?"],
-    }
+        }
         connectedCallback() {
             const subSections = this.subSections
             this.innerHTML = `
@@ -100,9 +117,9 @@ EL('dropdown-container',
     class extends HTMLElement {
         connectedCallback() {
             const sections = this.getAttribute("component").split(",")
-            for(var i = 0; i < sections.length; i++)
-            if (sections[i] != null)
-            this.innerHTML += `
+            for (var i = 0; i < sections.length; i++)
+                if (sections[i] != null)
+                    this.innerHTML += `
             <p>${sections[i]}</p>
     `;
         }
