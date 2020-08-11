@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      overflow: hidden;
+      margin: 0px;
+    }
+
+    .app {
+      display: grid;
+      grid-template-columns: 5fr 1.5fr 18fr 3fr;
+      grid-template-areas: ". main";
+      height: 100vh;
+      margin-left: 24px;
+      margin-right: 24px;
+    }
+
+    .sidebar {
+      background-color: #FDFDFD;
+      padding-right: 5%;
+      -webkit-box-shadow: 3px 5px 9px -8px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 3px 5px 9px -8px rgba(0, 0, 0, 0.75);
+      box-shadow: 3px 5px 9px -8px rgba(0, 0, 0, 0.75);
+      overflow-y: auto;
+    }
+
+    .main {
+      display: grid;
+      grid-template-columns: ;
+      grid-template-rows: 25% 25% auto;
+      grid-template-areas: ".""."".";
+      padding-top: 65px;
+      overflow-y: auto;
+    }
+
+    .topbar {
+      background-color: azure;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+    }
+
+    .intro {
+      background-color: seashell;
+    }
+
+    .version {
+      margin: 0;
+      text-align: right;
+    }
+
+    .section {
+      margin: 0;
+    }
+
+    .content {
+      background-color: bisque;
+      margin-top: 100px;
+    }
+
+    .sidebar-head-top {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .sidebar-head-top p {
+      height: 36px;
+      left: 1.25%;
+      right: 90.42%;
+      top: 32px;
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 36px;
+      display: flex;
+      align-items: flex-end;
+      text-align: center;
+      color: #0073E7;
+    }
+
+    .search {
+      width: 100%;
+      height: 46px;
+      left: 24px;
+      top: 116px;
+      padding-left: 40px;
+      margin-top: 24px;
+      background: #FFFFFF;
+      border: 1px solid #333333;
+      box-sizing: border-box;
+      border-radius: 24px;
+      font-size: large;
+    }
+
+    .search:focus {
+      outline: none;
+    }
+
+    .search-icon {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      left: 36px;
+      top: 123px;
+    }
+
+    .component-section {
+      margin-top: 10px;
+      display: flex;
+      font-size: larger;
+      cursor: pointer;
+    }
+
+    .component-section img {
+      margin-right: 10px;
+    }
+
+    .dropdown-container {
+      display: none;
+      padding-left: 8px;
+      margin-left: 41px;
+    }
+  </style>
+  <script src="components.js"></script>
+</head>
+
+<body>
+  <main-app></main-app>
+</body>
+
+</html>
