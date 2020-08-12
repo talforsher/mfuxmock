@@ -8,6 +8,13 @@ addEventListener("load", function () {
 
     for (i = 0; i < dropdown.length; i++) {
         dropdown[i].addEventListener("click", function () {
+            for (j = 0; j < dropdown.length; j++) {
+             if(dropdown[j] != this){
+             dropdown[j].classList.remove("active");
+             var dropdownContent = dropdown[j].nextElementSibling;
+             dropdownContent.style.display = "none";
+             }
+            }
             this.classList.toggle("active");
             var dropdownContent = this.nextElementSibling;
             if (dropdownContent.style.display === "block") {
