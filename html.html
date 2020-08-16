@@ -1,0 +1,431 @@
+< html lang = "en" > < head >
+    <
+    meta charset = "UTF-8" >
+    <
+    meta name = "viewport"
+content = "width=device-width, initial-scale=1.0" >
+    <
+    title > Document < /title> <
+    style >
+    body {
+        overflow: hidden;
+        margin: 0 px;
+    }
+
+    .app {
+        display: grid;
+        grid - template - columns: 5 fr 1.5 fr 18 fr 3 fr;
+        grid - template - areas: ". main";
+        height: 100 vh;
+        padding - left: 24 px;
+        padding - right: 24 px;
+    }
+
+    .sidebar {
+        background - color: #FDFDFD;
+        padding - right: 5 % ; -
+        webkit - box - shadow: 3 px 5 px 9 px - 8 px rgba(0, 0, 0, 0.75); -
+        moz - box - shadow: 3 px 5 px 9 px - 8 px rgba(0, 0, 0, 0.75);
+        box - shadow: 3 px 5 px 9 px - 8 px rgba(0, 0, 0, 0.75);
+        overflow - y: auto;
+        z - index: 1;
+    }
+
+    .main {
+        display: grid;
+        grid - template - columns:;
+        grid - template - rows: 25 % 25 % auto;
+        grid - template - areas: "."
+        "."
+        ".";
+        padding - top: 65 px;
+        overflow - y: auto;
+    }
+
+    .topbar {
+        background - color: white;
+        display: grid;
+        grid - template - columns: 1 fr 1 fr;
+        grid - template - rows: auto auto;
+        transition: 1 s;
+    }
+
+    .sticky {
+        position: fixed;
+        top: 0;
+        left: 18 % ;
+        width: 77 % ;
+        padding - left: 6 % ;
+        grid - template - columns: 1 fr 2 fr;
+        box - shadow: 0 px 2 px 4 px rgba(0, 0, 0, 0.12);
+    }
+
+    .sticky h2 {
+        text - align: left;
+    }
+
+    .intro {
+        background - color: seashell;
+    }
+
+    .version {
+        margin: 0;
+        text - align: right;
+    }
+
+    .section {
+        margin: 0;
+    }
+
+    .content {
+        background - color: bisque;
+        margin - top: 100 px;
+    }
+
+    .sidebar - head - top {
+        display: flex;
+        justify - content: space - between;
+    }
+
+    .sidebar - head - top p {
+        height: 36 px;
+        left: 1.25 % ;
+        right: 90.42 % ;
+        top: 32 px;
+        font - family: Poppins;
+        font - style: normal;
+        font - weight: 500;
+        font - size: 24 px;
+        line - height: 36 px;
+        display: flex;
+        align - items: flex - end;
+        text - align: center;
+        color: #0073E7;
+    }
+
+    .search {
+      width: 100%;
+      height: 46px;
+      left: 24px;
+      top: 116px;
+      padding-left: 40px;
+      margin-top: 24px;
+      background: # FFFFFF;
+        border: 1 px solid #333333;
+      box-sizing: border-box;
+      border-radius: 24px;
+      font-size: large;
+    }
+
+    .search:focus {
+      outline: none;
+    }
+
+    .search-icon {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      left: 36px;
+      top: 123px;
+    }
+
+    .component-section {
+      margin-top: 10px;
+      display: flex;
+      font-size: larger;
+      cursor: pointer;
+    }
+
+    .component-section img {
+      margin-right: 10px;
+    }
+
+    .dropdown-container {
+      display: none;
+      padding-left: 8px;
+      margin-left: 41px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0px;
+      /* Remove scrollbar space */
+      background: transparent;
+      /* Optional: just make scrollbar invisible */
+    }
+  </style>
+  <script src= "components.js" > < /script> <
+            /head>
+
+            <
+            body >
+            <
+            main - app >
+            <
+            div class = "app" >
+            <
+            side - bar class = "sidebar" >
+            <
+            div class = "sidebar-head" >
+            <
+            div class = "sidebar-head-top" >
+            <
+            p > EverythingUX < /p> <
+            img src = "assets/img/arrow.svg" >
+            <
+            /div> <
+            img class = "search-icon"
+        src = "assets/img/search.svg" >
+        <
+        input type = "text"
+        class = "search"
+        placeholder = "search" >
+        <
+        /div> <
+        div class = "sidebar-main" >
+        <
+        components - sections image = "assets/img/placeholder.svg"
+        section = "Principles"
+        sub - sections = "hey,oh" >
+        <
+        div class = "component-section" >
+        <
+        img src = "assets/img/placeholder.svg" >
+        <
+        p > Principles < /p> <
+        /div> <
+        dropdown - container component = "hey,oh"
+        class = "dropdown-container" >
+        <
+        p > hey < /p>
+
+        <
+        p > oh < /p> <
+        /dropdown-container> <
+        /components-sections> <
+        components - sections image = "assets/img/placeholder.svg"
+        section = "Components"
+        sub - sections = "this,that" >
+        <
+        div class = "component-section" >
+        <
+        img src = "assets/img/placeholder.svg" >
+        <
+        p > Components < /p> <
+        /div> <
+        dropdown - container component = "this,that"
+        class = "dropdown-container" >
+        <
+        p > this < /p>
+
+        <
+        p > that < /p> <
+        /dropdown-container> <
+        /components-sections> <
+        components - sections image = "assets/img/placeholder.svg"
+        section = "Tokens"
+        sub - sections = "here,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there" >
+        <
+        div class = "component-section" >
+        <
+        img src = "assets/img/placeholder.svg" >
+        <
+        p > Tokens < /p> <
+        /div> <
+        dropdown - container component = "here,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there,there"
+        class = "dropdown-container" >
+        <
+        p > here < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p>
+
+        <
+        p > there < /p> <
+        /dropdown-container> <
+        /components-sections> <
+        components - sections image = "assets/img/placeholder.svg"
+        section = "Downloads"
+        sub - sections = "for,what?" >
+        <
+        div class = "component-section" >
+        <
+        img src = "assets/img/placeholder.svg" >
+        <
+        p > Downloads < /p> <
+        /div> <
+        dropdown - container component = "for,what?"
+        class = "dropdown-container" >
+        <
+        p >
+        for < /p>
+
+        <
+        p > what ? < /p> <
+        /dropdown-container> <
+        /components-sections> <
+        /div>  <
+        /side-bar> <
+        div class = "gap" > < /div> <
+        div class = "main" >
+        <
+        div class = "topbar" >
+        <
+        div >
+        <
+        h1 > Components < /h1> <
+        /div> <
+        div >
+        <
+        /div> <
+        div >
+        <
+        h2 class = "section" > Buttons < /h2> <
+        /div> <
+        div >
+        <
+        h2 class = "version" > 2020 _07 < /h2> <
+        /div> <
+        /div> <
+        div class = "intro" > intro < /div> <
+        div class = "content" >
+        <
+        iframe style = "border: 1px solid rgba(0, 0, 0, 0.1);"
+        width = "800"
+        height = "450"
+        src = "https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2FhVKDlMRrCmwWQXUcVjDTJK%2FButtons-DS.2020%3Fnode-id%3D1%253A2&amp;chrome=DOCUMENTATION"
+        allowfullscreen = "" > < /iframe> <
+        /div> <
+        /div> <
+        /div> <
+        /main-app>
+
+        <
+        script >
+        addEventListener("load", function () {
+            var dropdown = document.getElementsByClassName("component-section");
+            var i;
+
+            for (i = 0; i < dropdown.length; i++) {
+                dropdown[i].addEventListener("click", function () {
+                    for (j = 0; j < dropdown.length; j++) {
+                        if (dropdown[j] != this) {
+                            dropdown[j].classList.remove("active");
+                            var dropdownContent = dropdown[j].nextElementSibling;
+                            dropdownContent.style.display = "none";
+                        }
+                    }
+                    this.classList.toggle("active");
+                    var dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === "block") {
+                        dropdownContent.style.display = "none";
+                    } else {
+                        dropdownContent.style.display = "block";
+                    }
+                });
+            }
+
+            var main = document.getElementsByClassName("main")[0]
+            main.onscroll = function () {
+                myFunction()
+            };
+
+            var navbar = document.getElementsByClassName("topbar")[0];
+            var sticky = navbar.offsetTop;
+
+            function myFunction() {
+                if (main.scrollTop >= sticky) {
+                    navbar.classList.add("sticky")
+                } else {
+                    navbar.classList.remove("sticky");
+                }
+            }
+
+        }) <
+        /script>
+
+        <
+        /body></html >

@@ -2,51 +2,16 @@ const EL = (name, el) => {
     return customElements.define(name, el)
 }
 
-addEventListener("load", function () {
-    var dropdown = document.getElementsByClassName("component-section");
-    var i;
-
-    for (i = 0; i < dropdown.length; i++) {
-        dropdown[i].addEventListener("click", function () {
-            for (j = 0; j < dropdown.length; j++) {
-             if(dropdown[j] != this){
-             dropdown[j].classList.remove("active");
-             var dropdownContent = dropdown[j].nextElementSibling;
-             dropdownContent.style.display = "none";
-             }
-            }
-            this.classList.toggle("active");
-            var dropdownContent = this.nextElementSibling;
-            if (dropdownContent.style.display === "block") {
-                dropdownContent.style.display = "none";
-            } else {
-                dropdownContent.style.display = "block";
-            }
-        });
-    }
-
-    var main = document.getElementsByClassName("main")[0]
-    main.onscroll = function () {
-        myFunction()
-    };
-
-    var navbar = document.getElementsByClassName("topbar")[0];
-    var sticky = navbar.offsetTop;
-
-    function myFunction() {
-        if (main.scrollTop >= sticky) {
-            navbar.classList.add("sticky")
-        } else {
-            navbar.classList.remove("sticky");
-        }
-    }
-
-})
-
 EL('main-app',
     class extends HTMLElement {
+        api = new Figma.Api({
+            personalAccessToken: '58018-48bd1f1c-142b-42b6-9b8c-29af938a201e'
+        });
+
         connectedCallback() {
-            this.innerHTML = `
+            this.api.getFile('hVKDlMRrCmwWQXUcVjDTJK').then((file) => {
+                var target = file.document.children[0];
+                var prep = `
                 <div class="app">
                 <side-bar class="sidebar"></side-bar>
                 <div class="gap"></div>
@@ -65,12 +30,56 @@ EL('main-app',
                     </div>
                     </div>
                     <div class="intro">intro</div>
-                    <div class="content">
-                    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FhVKDlMRrCmwWQXUcVjDTJK%2FButtons-DS.2020%3Fnode-id%3D1%253A2&chrome=DOCUMENTATION" allowfullscreen></iframe>
+                    <div class="content">`
+
+                for (var i in target.children)
+                    prep += `<iframe width="500px" height="300px" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/hVKDlMRrCmwWQXUcVjDTJK/Buttons-DS.2020?node-id=${target.children[i].id}"></iframe>`
+
+                prep += `
                     </div>
                 </div>
                 </div>
-      `;
+      `
+                this.innerHTML += prep
+                console.log("loaded")
+                var dropdown = document.getElementsByClassName("component-section");
+                var i;
+
+                for (var i = 0; i < dropdown.length; i++) {
+                    dropdown[i].addEventListener("click", function () {
+                        for (var j = 0; j < dropdown.length; j++) {
+                            if (dropdown[j] != this) {
+                                dropdown[j].classList.remove("active");
+                                var dropdownContent = dropdown[j].nextElementSibling;
+                                dropdownContent.style.display = "none";
+                            }
+                        }
+                        this.classList.toggle("active");
+                        var dropdownContent = this.nextElementSibling;
+                        if (dropdownContent.style.display === "block") {
+                            dropdownContent.style.display = "none";
+                        } else {
+                            dropdownContent.style.display = "block";
+                        }
+                    });
+                }
+
+                var main = document.getElementsByClassName("main")[0]
+                main.onscroll = function () {
+                    myFunction()
+                };
+
+                var navbar = document.getElementsByClassName("topbar")[0];
+                var sticky = navbar.offsetTop;
+
+                function myFunction() {
+                    if (main.scrollTop >= sticky) {
+                        navbar.classList.add("sticky")
+                    } else {
+                        navbar.classList.remove("sticky");
+                    }
+                }
+            })
         }
     }
 );
