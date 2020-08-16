@@ -41,7 +41,6 @@ EL('main-app',
                 </div>
       `
                 this.innerHTML += prep
-                console.log("loaded")
                 var dropdown = document.getElementsByClassName("component-section");
                 var i;
 
