@@ -148,11 +148,42 @@
       background: transparent;
       /* Optional: just make scrollbar invisible */
     }
+
+    #ruleThem {
+      vertical-align: middle;
+      width: 100vw;
+      height: 100vh;
+      text-align: center;
+      display: table-cell;
+      opacity: 1;
+      animation-name: fadeInOpacity;
+      animation-duration: 10s;
+    }
+
+    @keyframes fadeInOpacity {
+      0% {
+        opacity: 0.5;
+        transform: scale(0.8);
+        filter: blur(7px);
+      }
+
+      10%{
+        filter: blur(0);
+      }
+
+      100% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
   </style>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </head>
 
 <body>
+  <div id="ruleThem">
+    <img src="assets/img/rule-them-all.png" alt="rule them all">
+  </div>
   <main-app id="app"></main-app>
 </body>
 

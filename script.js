@@ -95,9 +95,9 @@
                                 throw: a(1),
                                 return: a(2)
                             }, "function" == typeof Symbol && (r[Symbol.iterator] =
-                        function () {
-                                return this
-                            }), r;
+                                function () {
+                                    return this
+                                }), r;
 
                             function a(r) {
                                 return function (a) {
@@ -110,7 +110,8 @@
                                                         s.call(i), 0) : i.next) && !(s =
                                                     s.call(i, r[1])).done) return s;
                                             switch (i = 0, s && (r = [2 & r[0], s
-                                                .value]), r[0]) {
+                                                .value
+                                            ]), r[0]) {
                                                 case 0:
                                                 case 1:
                                                     s = r;
@@ -655,7 +656,7 @@
                                 .addEventListener("progress", e.onDownloadProgress),
                                 "function" == typeof e.onUploadProgress && n.upload && n
                                 .upload.addEventListener("progress", e
-                                .onUploadProgress), e.cancelToken && e.cancelToken
+                                    .onUploadProgress), e.cancelToken && e.cancelToken
                                 .promise.then(function (e) {
                                     n && (n.abort(), t(e), n = null)
                                 }), void 0 === s && (s = null), n.send(s)
@@ -857,8 +858,7 @@
                         return throwIfCancellationRequested(e), e.baseURL && !isAbsoluteURL(e
                                 .url) && (e.url = combineURLs(e.baseURL, e.url)), e.headers = e
                             .headers || {}, e.data = transformData(e.data, e.headers, e
-                                .transformRequest), e.headers = utils.merge(e.headers.common ||
-                            {}, e.headers[e.method] || {}, e.headers || {}), utils.forEach([
+                                .transformRequest), e.headers = utils.merge(e.headers.common || {}, e.headers[e.method] || {}, e.headers || {}), utils.forEach([
                                 "delete", "get", "head", "post", "put", "patch", "common"
                             ], function (a) {
                                 delete e.headers[a]
@@ -989,7 +989,7 @@
                                     .isURLSearchParams(e) ? (setContentTypeIfUnset(
                                         t,
                                         "application/x-www-form-urlencoded;charset=utf-8"
-                                        ), e.toString()) : utils.isObject(e) ? (
+                                    ), e.toString()) : utils.isObject(e) ? (
                                         setContentTypeIfUnset(t,
                                             "application/json;charset=utf-8"), JSON
                                         .stringify(e)) : e
@@ -1179,7 +1179,7 @@
                         return t ? (utils.forEach(t.split("\n"), function (t) {
                             if (r = t.indexOf(":"), e = utils.trim(t.substr(0, r))
                                 .toLowerCase(), i = utils.trim(t.substr(r + 1)), e
-                                ) {
+                            ) {
                                 if (o[e] && ignoreDuplicateOf.indexOf(e) >= 0)
                                     return;
                                 o[e] = "set-cookie" === e ? (o[e] ? o[e] : [])
@@ -1460,13 +1460,13 @@
         const EL = (name, el) => {
             return customElements.define(name, el)
         }
-        
+
         EL('main-app',
             class extends HTMLElement {
                 api = new Figma.Api({
                     personalAccessToken: '58018-48bd1f1c-142b-42b6-9b8c-29af938a201e'
                 });
-        
+
                 connectedCallback() {
                     this.api.getFile('hVKDlMRrCmwWQXUcVjDTJK').then((file) => {
                         var target = file.document.children[0];
@@ -1490,19 +1490,20 @@
                             </div>
                             <div class="intro">intro</div>
                             <div class="content">`
-        
+
                         for (var i in target.children)
                             prep += `<iframe width="500px" height="300px" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/hVKDlMRrCmwWQXUcVjDTJK/Buttons-DS.2020?node-id=${target.children[i].id}"></iframe>`
-        
+
                         prep += `
                             </div>
                         </div>
                         </div>
               `
+                        document.getElementById("ruleThem").remove()
                         this.innerHTML += prep
                         var dropdown = document.getElementsByClassName("component-section");
                         var i;
-        
+
                         for (var i = 0; i < dropdown.length; i++) {
                             dropdown[i].addEventListener("click", function () {
                                 for (var j = 0; j < dropdown.length; j++) {
@@ -1521,15 +1522,15 @@
                                 }
                             });
                         }
-        
+
                         var main = document.getElementsByClassName("main")[0]
                         main.onscroll = function () {
                             myFunction()
                         };
-        
+
                         var navbar = document.getElementsByClassName("topbar")[0];
                         var sticky = navbar.offsetTop;
-        
+
                         function myFunction() {
                             if (main.scrollTop >= sticky) {
                                 navbar.classList.add("sticky")
@@ -1541,7 +1542,7 @@
                 }
             }
         );
-        
+
         EL('side-bar',
             class extends HTMLElement {
                 subSections = {
@@ -1571,7 +1572,7 @@
                 }
             }
         );
-        
+
         EL('components-sections',
             class extends HTMLElement {
                 subSections = this.getAttribute("sub-sections")
@@ -1586,7 +1587,7 @@
                 }
             }
         );
-        
+
         EL('dropdown-container',
             class extends HTMLElement {
                 connectedCallback() {
